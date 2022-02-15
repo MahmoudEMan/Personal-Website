@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --primary-color: #79b384;
+  --secondary-color: #0f172a;
+  --white-color: #f8eadc;
+  --main-language: 'Cormorant Garamond', serif;
+  --secondery-language: 'Heebo', sans-serif;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(15, 23, 42, 0.6);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overbg-color {
+  background: rgb(106, 159, 116);
+  background: linear-gradient(180deg, rgba(106, 159, 116, 1) 11%, rgba(104, 182, 91, 1) 70%);
+}
+
+.text-leftEff::after {
+  content: '';
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  height: 100%;
+  width: 3px;
+}
+
+.burger-menu {
+  --burger-menu-radius: 4em;
+  position: relative;
+  /* top: 5vh; */
+  /* left: 5vw; */
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  width: var(--burger-menu-radius);
+  /* height: var(--burger-menu-radius); */
+  outline: none;
+  cursor: pointer;
+}
+
+.burger-menu .line {
+  position: relative;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+  margin: 0.2rem 0;
+  transition: 0.4s;
+  transform-origin: left;
+  opacity: 1;
+}
+
+.burger-menu.open .line {
+  background: var(--secondary-color);
+  ba
+}
+
+.burger-menu .line::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transform: translateX(-100%);
+  transition: 0.25s;
+}
+
+.burger-menu:hover .line::after {
+  transform: translateX(0);
+}
+
+.burger-menu .line:nth-child(2)::after {
+  transition-delay: 0.1s;
+}
+
+.burger-menu .line:nth-child(3)::after {
+  transition-delay: 0.2s;
+}
+.burger-menu.open .line:nth-child(1)
+{
+  transform: rotate(45deg);
+}
+.burger-menu.open .line:nth-child(2)
+{
+  transform: scaleX(0);
+  opacity: 0;
+}
+.burger-menu.open .line:nth-child(3)
+{
+  transform: rotate(-45deg);
+}
+
+#contact-menu {
+  color: var(--secondary-color);
+  /* color: white; */
+  z-index: 60;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: block;
+  box-shadow: none;
+  padding: 3.473em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  right: 4%;
+  top: 18%;
+  width: 22.223em;
+  font-size: 1.1em;
+  position: absolute;
+  -webkit-transition: opacity 0.4s, box-shadow 0.4s;
+  transition: opacity 0.4s, box-shadow 0.4s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#contact-menu::before {
+  content: '';
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 0.3s;
+  transform: scale(0);
+  transform-origin: top right;
+  /* display: none; */
+  opacity: 0;
+
+}
+#contact-menu.open
+{
+  opacity: 1;
+  visibility: visible;
+}
+#contact-menu.open::before
+{
+  transform: scale(1);
+  opacity: 1;
+
+}
+#contact-menu .cross-site-nav
+{
+  transform: translateY(10px);
+
+  opacity: 0;
+
+
+}
+#contact-menu.open  .cross-site-nav
+{
+  transform: translateY(0);
+  opacity: 1;
+  transition: 0.4s;
+  transition-delay: 0.2s;
+}
+
+#contact-menu .basic-contact
+{
+  transform: translateY(10px);
+  opacity: 0;
+}
+#contact-menu.open  .basic-contact
+{
+  transform: translateY(0);
+  opacity: 1;
+  transition: 0.4s;
+  transition-delay: 0.4s;
+}
+
+/* .section */
+  {
+  padding: 5rem 3rem;
+}
+
+/* work */
+.work div:nth-child(1) {
+  opacity: 0;
+  transition: 0.3s;
+  transform: scale(0.7);
+}
+
+.work:hover div:nth-child(1) {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.work:hover div:nth-child(2) {
+  opacity: 0.6;
+}
+
+/*services*/
+/* .function-based-values-demo .el
+{
+  animation: keepRotating 10s linear infinite;
+} */
+@keyframes keepRotating {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width :500px)
+{
+  #contact-menu
+  {
+    left: 0;
+    top: 0;
+  }
+}
