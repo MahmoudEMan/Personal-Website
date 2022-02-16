@@ -35,7 +35,7 @@ function repeat(){
 repeat();
 
 const overlayLayers = document.querySelectorAll(".overlay-layers");
-const duration = 1800
+const duration = 1200
 const delayBetween = 150;
 anime({
   targets: overlayLayers,
@@ -44,9 +44,38 @@ anime({
   delay: function(el , i){
     return 500 + (i * delayBetween)
   },
-  easing:"easeInBounce",
+  easing:"easeInSine",
   complete: function() {
     document.querySelector('.overlay').style.display = 'none';
+    headerAnim()
   }
 
 });
+
+
+function headerAnim(){
+  anime({
+  targets: '.header-content',
+  translateX: [-75, 0], // from 100 to 250
+  duration:1200,
+  easing:'easeOutQuad',
+  opacity:[0,1]
+});
+anime({
+  targets:'header',
+  translateY: ['-100%', 0], // from 100 to 250
+  duration:1200,
+  delay:300,
+  easing:'easeOutQuad',
+
+  opacity:1
+});
+anime({
+  targets:'.headerArrow ',
+  translateY: ['-100%', 0], // from 100 to 250
+  duration:1200,
+  delay:1200,
+  easing:'easeOutQuad',
+  opacity:[0,1]
+})
+}

@@ -28,9 +28,11 @@ const pricing = [{
 const workContainer = document.querySelector(".work-container");
 
 pricing.forEach((level, idx) => {
-  const direction = idx % 2 == 0 ? "left" : "right";
+  const direction = idx % 2 == 0 ? "right" : "left";
   console.log(direction);
-  const div = `<div class="relative work z-10 mb-8 lg:mb-0">
+
+  const div = `<div data-aos="fade-${direction}" data-aos-duration="1200">
+  <div class="relative work z-10 mb-8 lg:mb-0">
     <img class="w-full" src=${level.src} alt="">
     <div class="absolute duration-300 w-full h-full bg-slate-900 opacity-0 top-0 left-0 z-10 "></div>
     <div class="absolute w-full h-full flex justify-center items-center top-0 left-0 z-20 ">
@@ -47,7 +49,8 @@ pricing.forEach((level, idx) => {
       </div>
 
     </div>
-  </div>`
+  </div></div>
+  `
   workContainer.insertAdjacentHTML("beforeend", div)
 });
 
